@@ -12,6 +12,8 @@ public class DatabaseConnectionFixture
     [Timeout(10000)]
     public void ConnectToDatabase()
     {
+        Console.WriteLine("asdfasdf");
+
         var connstr = "server=(localdb)\\MSSQLLocalDB; database=test1234; Integrated Security=True;";
 
         using var conn = new SqlConnection(connstr);
