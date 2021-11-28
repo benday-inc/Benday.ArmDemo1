@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{07739A98-E659-4F3E-AD58-E7EAE985A93A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benday.ArmDemo1.Api", "src\Benday.ArmDemo1.Api\Benday.ArmDemo1.Api.csproj", "{9BFEB2CA-2B91-4241-B9C6-A57B1B9FF763}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benday.ArmDemo1.WebUi", "src\Benday.ArmDemo1.WebUi\Benday.ArmDemo1.WebUi.csproj", "{9C5172CB-9C01-430E-B87E-577E911593D9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{11E58FAD-C6E9-414C-955C-0FB9FD4E9BDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benday.ArmDemo1.UnitTests", "test\Benday.ArmDemo1.UnitTests\Benday.ArmDemo1.UnitTests.csproj", "{D352D42B-B38D-44CE-BCA2-B7D0487C8BCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benday.ArmDemo1.IntegrationTests", "test\Benday.ArmDemo1.IntegrationTests\Benday.ArmDemo1.IntegrationTests.csproj", "{0E3C9F50-7121-4752-AEFF-B7EE736B26CB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9BFEB2CA-2B91-4241-B9C6-A57B1B9FF763}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BFEB2CA-2B91-4241-B9C6-A57B1B9FF763}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BFEB2CA-2B91-4241-B9C6-A57B1B9FF763}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BFEB2CA-2B91-4241-B9C6-A57B1B9FF763}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C5172CB-9C01-430E-B87E-577E911593D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C5172CB-9C01-430E-B87E-577E911593D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C5172CB-9C01-430E-B87E-577E911593D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C5172CB-9C01-430E-B87E-577E911593D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D352D42B-B38D-44CE-BCA2-B7D0487C8BCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D352D42B-B38D-44CE-BCA2-B7D0487C8BCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D352D42B-B38D-44CE-BCA2-B7D0487C8BCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D352D42B-B38D-44CE-BCA2-B7D0487C8BCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E3C9F50-7121-4752-AEFF-B7EE736B26CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E3C9F50-7121-4752-AEFF-B7EE736B26CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E3C9F50-7121-4752-AEFF-B7EE736B26CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E3C9F50-7121-4752-AEFF-B7EE736B26CB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9BFEB2CA-2B91-4241-B9C6-A57B1B9FF763} = {07739A98-E659-4F3E-AD58-E7EAE985A93A}
+		{9C5172CB-9C01-430E-B87E-577E911593D9} = {07739A98-E659-4F3E-AD58-E7EAE985A93A}
+		{D352D42B-B38D-44CE-BCA2-B7D0487C8BCF} = {11E58FAD-C6E9-414C-955C-0FB9FD4E9BDE}
+		{0E3C9F50-7121-4752-AEFF-B7EE736B26CB} = {11E58FAD-C6E9-414C-955C-0FB9FD4E9BDE}
+	EndGlobalSection
+EndGlobal
