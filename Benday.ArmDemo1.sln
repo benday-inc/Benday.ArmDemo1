@@ -3,19 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{07739A98-E659-4F3E-AD58-E7EAE985A93A}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benday.ArmDemo1.Api", "src\Benday.ArmDemo1.Api\Benday.ArmDemo1.Api.csproj", "{9BFEB2CA-2B91-4241-B9C6-A57B1B9FF763}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benday.ArmDemo1.WebUi", "src\Benday.ArmDemo1.WebUi\Benday.ArmDemo1.WebUi.csproj", "{9C5172CB-9C01-430E-B87E-577E911593D9}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{11E58FAD-C6E9-414C-955C-0FB9FD4E9BDE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benday.ArmDemo1.UnitTests", "test\Benday.ArmDemo1.UnitTests\Benday.ArmDemo1.UnitTests.csproj", "{D352D42B-B38D-44CE-BCA2-B7D0487C8BCF}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benday.ArmDemo1.ConsoleUi", "src\Benday.ArmDemo1.ConsoleUi\Benday.ArmDemo1.ConsoleUi.csproj", "{45A116BA-9692-4FD1-88AB-763102FA56FE}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestTest1", "test\TestTest1\TestTest1.csproj", "{70DB90E8-BC96-467E-88B0-1B03C21E94CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,36 +13,16 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9BFEB2CA-2B91-4241-B9C6-A57B1B9FF763}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9BFEB2CA-2B91-4241-B9C6-A57B1B9FF763}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9BFEB2CA-2B91-4241-B9C6-A57B1B9FF763}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9BFEB2CA-2B91-4241-B9C6-A57B1B9FF763}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9C5172CB-9C01-430E-B87E-577E911593D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9C5172CB-9C01-430E-B87E-577E911593D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9C5172CB-9C01-430E-B87E-577E911593D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9C5172CB-9C01-430E-B87E-577E911593D9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D352D42B-B38D-44CE-BCA2-B7D0487C8BCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D352D42B-B38D-44CE-BCA2-B7D0487C8BCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D352D42B-B38D-44CE-BCA2-B7D0487C8BCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D352D42B-B38D-44CE-BCA2-B7D0487C8BCF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{45A116BA-9692-4FD1-88AB-763102FA56FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{45A116BA-9692-4FD1-88AB-763102FA56FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{45A116BA-9692-4FD1-88AB-763102FA56FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{45A116BA-9692-4FD1-88AB-763102FA56FE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{70DB90E8-BC96-467E-88B0-1B03C21E94CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{70DB90E8-BC96-467E-88B0-1B03C21E94CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{70DB90E8-BC96-467E-88B0-1B03C21E94CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{70DB90E8-BC96-467E-88B0-1B03C21E94CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{9BFEB2CA-2B91-4241-B9C6-A57B1B9FF763} = {07739A98-E659-4F3E-AD58-E7EAE985A93A}
-		{9C5172CB-9C01-430E-B87E-577E911593D9} = {07739A98-E659-4F3E-AD58-E7EAE985A93A}
 		{D352D42B-B38D-44CE-BCA2-B7D0487C8BCF} = {11E58FAD-C6E9-414C-955C-0FB9FD4E9BDE}
-		{45A116BA-9692-4FD1-88AB-763102FA56FE} = {07739A98-E659-4F3E-AD58-E7EAE985A93A}
-		{70DB90E8-BC96-467E-88B0-1B03C21E94CB} = {11E58FAD-C6E9-414C-955C-0FB9FD4E9BDE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BA425961-2FB1-4256-BCC1-5EBAB9851CE9}

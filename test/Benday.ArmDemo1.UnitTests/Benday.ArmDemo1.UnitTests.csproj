@@ -14,9 +14,4 @@
 		<PackageReference Include="coverlet.collector" Version="3.1.0" />
 	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\Benday.ArmDemo1.Api\Benday.ArmDemo1.Api.csproj" />
-    <ProjectReference Include="..\..\src\Benday.ArmDemo1.WebUi\Benday.ArmDemo1.WebUi.csproj" />
-  </ItemGroup>
-
 </Project>
