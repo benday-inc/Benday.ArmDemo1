@@ -7,6 +7,35 @@ namespace Benday.ArmDemo1.UnitTests;
 [TestClass]
 public class SqlLocalDbUtilFixture
 {
+    [TestInitialize]
+    public void OnTestInitialize()
+    {
+        _systemUnderTest = null;
+    }
+    private SqlLocalDbUtility? _systemUnderTest;
+    public SqlLocalDbUtility SystemUnderTest
+    {
+        get
+        {
+            if (_systemUnderTest == null)
+            {
+                _systemUnderTest = new SqlLocalDbUtility();
+            }
+
+            return _systemUnderTest;
+        }
+    }
+
+    [TestMethod]
+    public void GetInstanceNames()
+    {
+        var actual = SystemUnderTest.InstanceNames;
+
+        Assert.IsNotNull(actual, "InstanceNames should not be empty");
+        Assert.AreNotEqual<int>(0, actual.Count, "InstanceNames count should not be zero");
+    }
+    
+
     [TestMethod]
     public void CallSqlLocalDbAndReadResults()
     {
