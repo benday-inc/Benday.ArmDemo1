@@ -59,6 +59,84 @@ public class SqlLocalDbUtilFixture
     }
 
     [TestMethod]
+    public void Start_InstanceNameExists()
+    {
+        // arrange
+        var instances = SystemUnderTest.InstanceNames;
+
+        Assert.AreNotEqual<int>(0, instances.Count, "There should be instances");
+
+        var instanceName = instances[0];
+
+        SqlLocalDbUtility.Stop(instanceName);
+        var isRunningBefore = SqlLocalDbUtility.IsInstanceRunning(instanceName);
+
+        Assert.IsFalse(isRunningBefore, 
+            $"Instance {instanceName} should not be running at start of test");
+
+        // act
+        SqlLocalDbUtility.Start(instanceName);
+
+        // assert
+        var isRunningAfter = SqlLocalDbUtility.IsInstanceRunning(instanceName);
+
+        Assert.IsTrue(isRunningAfter, 
+            $"Instance {instanceName} should be running after Start() call");
+    }
+
+    [TestMethod]
+    [ExpectedException(typeof(InvalidOperationException))]
+    public void Start_InstanceNameDoesNotExist()
+    {
+        // arrange
+        var instanceName = "completelybogus";
+
+        // act
+        SqlLocalDbUtility.Start(instanceName);
+
+        // assert        
+    }
+
+    [TestMethod]
+    public void Stop_InstanceNameExists()
+    {
+        // arrange
+        var instances = SystemUnderTest.InstanceNames;
+
+        Assert.AreNotEqual<int>(0, instances.Count, "There should be instances");
+
+        var instanceName = instances[0];
+
+        SqlLocalDbUtility.Start(instanceName);
+        var isRunningBefore = SqlLocalDbUtility.IsInstanceRunning(instanceName);
+
+        Assert.IsTrue(isRunningBefore, 
+            $"Instance {instanceName} should be running at start of test");
+
+        // act
+        SqlLocalDbUtility.Stop(instanceName);
+
+        // assert
+        var isRunningAfter = SqlLocalDbUtility.IsInstanceRunning(instanceName);
+
+        Assert.IsFalse(isRunningAfter, 
+            $"Instance {instanceName} should not be running after Start() call");
+    }
+
+    [TestMethod]
+    [ExpectedException(typeof(InvalidOperationException))]
+    public void Stop_InstanceNameDoesNotExist()
+    {
+        // arrange
+        var instanceName = "completelybogus";
+
+        // act
+        SqlLocalDbUtility.Stop(instanceName);
+
+        // assert        
+    }
+
+    [TestMethod]
     public void CallSqlLocalDbAndReadResults()
     {
         // arrange

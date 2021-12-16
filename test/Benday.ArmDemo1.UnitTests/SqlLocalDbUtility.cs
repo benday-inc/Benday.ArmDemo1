@@ -94,6 +94,63 @@ public class SqlLocalDbUtility
         }
     }
 
+    public static void Start(string instanceName)
+    {
+        if (instanceName == null)
+        {
+            throw new ArgumentNullException(nameof(instanceName), "Argument cannot be null.");
+        }
+
+        AssertIsValidInstanceName(instanceName);
+
+        var startInfo = new ProcessStartInfo("sqllocaldb")
+        {
+            RedirectStandardOutput = true
+        };
+
+        startInfo.ArgumentList.Add("start");
+        startInfo.ArgumentList.Add(instanceName);
+
+        _ = RunProcessAndGetOutputLines(startInfo);
+    }
+
+    public static void Stop(string instanceName)
+    {
+        if (instanceName == null)
+        {
+            throw new ArgumentNullException(nameof(instanceName), "Argument cannot be null.");
+        }
+
+        AssertIsValidInstanceName(instanceName);
+
+        var startInfo = new ProcessStartInfo("sqllocaldb")
+        {
+            RedirectStandardOutput = true
+        };
+
+        startInfo.ArgumentList.Add("stop");
+        startInfo.ArgumentList.Add(instanceName);
+
+        _ = RunProcessAndGetOutputLines(startInfo);
+    }
+
+    private static void AssertIsValidInstanceName(string instanceName)
+    {
+        if (string.IsNullOrEmpty(instanceName) == true)
+        {
+            throw new InvalidOperationException($"Instance name cannot be null or empty.");
+        }
+        else
+        {
+            var exists = ReadInstanceNames().Contains(instanceName);
+
+            if (exists == false)
+            {
+                throw new InvalidOperationException($"Invalid instance name '{instanceName}'.");
+            }
+        }
+    }
+
     private static string? GetValueFromLines(List<string> lines, string startingValueForLine)
     {
         var match = lines.Where(
