@@ -137,6 +137,40 @@ public class SqlLocalDbUtilFixture
     }
 
     [TestMethod]
+    public void GetNamedPipeInfo_InstanceNameExists()
+    {
+        // arrange
+        var instances = SystemUnderTest.InstanceNames;
+
+        Assert.AreNotEqual<int>(0, instances.Count, "There should be instances");
+
+        var instanceName = instances[0];
+
+        // act
+        var actual = SqlLocalDbUtility.GetNamedPipeInfo(instanceName);
+
+        // assert
+        Assert.IsNotNull(actual, "Named pipe info should not be null");
+
+        Console.WriteLine($"Named pipe info: '{actual}'");
+
+        Assert.AreNotEqual<string>(String.Empty, actual, "Named pipe info should not be empty.");        
+    }
+
+    [TestMethod]
+    [ExpectedException(typeof(InvalidOperationException))]
+    public void GetNamedPipeInfo_InstanceNameDoesNotExist()
+    {
+        // arrange
+        var instanceName = "completelybogus";
+
+        // act
+        SqlLocalDbUtility.GetNamedPipeInfo(instanceName);
+
+        // assert        
+    }
+
+    [TestMethod]
     public void CallSqlLocalDbAndReadResults()
     {
         // arrange

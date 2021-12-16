@@ -9,12 +9,24 @@ public class DatabaseConnectionFixture
 {
     [TestMethod]
     // [Timeout(10000)]
-    public void ConnectToDatabase()
+    public void ConnectToDatabase_ConnectionString()
     {
         var connstr = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=test1234;Integrated Security=True;Connect Timeout=15;";
 
         Connect(connstr);
     }
+
+    [TestMethod]
+    // [Timeout(10000)]
+    public void ConnectToDatabase_NamedPipe()
+    {
+        var connstr = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=test1234;Integrated Security=True;Connect Timeout=15;";
+
+        Connect(connstr);
+    }
+
+    // var connstr = @"server=np:\\.\pipe\LOCALDB#SHF1EE43\tsql\query";
+        
 
     private void Connect(string connstr)
     {

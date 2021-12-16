@@ -168,4 +168,29 @@ public class SqlLocalDbUtility
             return returnValue;
         }
     }
+
+    public static string? GetNamedPipeInfo(string instanceName)
+    {
+        if (instanceName == null)
+        {
+            throw new ArgumentNullException(nameof(instanceName), 
+                "Argument cannot be null.");
+        }
+
+        AssertIsValidInstanceName(instanceName);
+
+        var startInfo = new ProcessStartInfo("sqllocaldb")
+        {
+            RedirectStandardOutput = true
+        };
+
+        startInfo.ArgumentList.Add("i");
+        startInfo.ArgumentList.Add(instanceName);
+
+        var lines = RunProcessAndGetOutputLines(startInfo);
+
+        var value = GetValueFromLines(lines, "Instance pipe name:");
+
+        return value;
+    }
 }
