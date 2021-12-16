@@ -16,7 +16,7 @@ public class DatabaseConnectionFixture
 
         SqlLocalDbUtility.Start(instanceName);
 
-        Thread.Sleep(5000);
+        Thread.Sleep(1000);
         
         var connstr = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=15;";
 
@@ -27,16 +27,23 @@ public class DatabaseConnectionFixture
     // [Timeout(10000)]
     public void ConnectToDatabase_NamedPipe()
     {
-        var instanceName = "dev";
+        var instanceName = "MSSQLLocalDB";
 
         SqlLocalDbUtility.Start(instanceName);
 
-        Thread.Sleep(5000);
+        Thread.Sleep(1000);
 
         var pipeInfo = SqlLocalDbUtility.GetNamedPipeInfo(instanceName);
 
-        // var connstr = @$"server={pipeInfo};Initial Catalog=master;Integrated Security=True;Connect Timeout=15;";
-        var connstr = @$"server={pipeInfo}; Trust Server Certificate=true;";
+        var builder = new SqlConnectionStringBuilder();
+        builder.TrustServerCertificate = true;
+        // builder.InitialCatalog = "test1234";
+        builder.DataSource = pipeInfo;
+        builder.Encrypt = false;
+        
+        var connstr = builder.ConnectionString;
+        // var connstr = @$"server={pipeInfo};Initial Catalog=master;Integrated Security=True;Connect Timeout=15;TrustServerCertificate=true;";
+        // var connstr = @$"server={pipeInfo}; Trust Server Certificate=true;";
 
         Connect(connstr);
     }
