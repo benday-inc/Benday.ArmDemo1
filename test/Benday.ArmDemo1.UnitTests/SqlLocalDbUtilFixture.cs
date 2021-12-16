@@ -34,7 +34,29 @@ public class SqlLocalDbUtilFixture
         Assert.IsNotNull(actual, "InstanceNames should not be empty");
         Assert.AreNotEqual<int>(0, actual.Count, "InstanceNames count should not be zero");
     }
-    
+
+    [TestMethod]
+    public void IsInstanceRunning_InstancesThatExist()
+    {
+        var instances = SystemUnderTest.InstanceNames;
+
+        Assert.AreNotEqual<int>(0, instances.Count, "There should be instances");
+
+        foreach (var instanceName in instances)
+        {
+            var isRunning = SqlLocalDbUtility.IsInstanceRunning(instanceName);
+
+            Console.WriteLine($"Instance '{instanceName}' is running '{isRunning}'");
+        }
+    }
+
+    [TestMethod]
+    public void IsInstanceRunning_InstancesThatDoesntExist_ReturnFalse()
+    {
+        var actual = SqlLocalDbUtility.IsInstanceRunning("completelybogus");
+
+        Assert.IsFalse(actual, "Value should be false.");
+    }
 
     [TestMethod]
     public void CallSqlLocalDbAndReadResults()
