@@ -34,16 +34,8 @@ public class DatabaseConnectionFixture
         Thread.Sleep(1000);
 
         var pipeInfo = SqlLocalDbUtility.GetNamedPipeInfo(instanceName);
-
-        var builder = new SqlConnectionStringBuilder();
-        builder.TrustServerCertificate = true;
-        // builder.InitialCatalog = "test1234";
-        builder.DataSource = pipeInfo;
-        builder.Encrypt = false;
         
-        var connstr = builder.ConnectionString;
-        // var connstr = @$"server={pipeInfo};Initial Catalog=master;Integrated Security=True;Connect Timeout=15;TrustServerCertificate=true;";
-        // var connstr = @$"server={pipeInfo}; Trust Server Certificate=true;";
+        var connstr = @$"Data Source={pipeInfo}; Encrypt=false;";
 
         Connect(connstr);
     }
