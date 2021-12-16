@@ -1,5 +1,4 @@
 using Microsoft.Data.SqlClient;
-using Microsoft.Extensions.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
@@ -12,14 +11,14 @@ public class DatabaseConnectionFixture
     // [Timeout(10000)]
     public void ConnectToDatabase()
     {
-        Console.WriteLine("asdfasdf");
+        var connstr = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=test1234;Integrated Security=True;Connect Timeout=15;";
 
-        // var connstr = "server=(localdb)\\MSSQLLocalDB; database=master; Integrated Security=True;";
-        // var connstr = "server=(localdb)\\.; database=test1234; Integrated Security=True;";
-        // var connstr = @"server=np:\\.\pipe\LOCALDB#SHF1EE43\tsql\query";
-        // var connstr = @"Data Source=(localdb)\dev;Connect Timeout=10;";
-        var connstr = @"server=(localdb)\dev;Connect Timeout=10;database=test123;";
-        // var connstr = @"server=(localdb)\dev;Integrated Security=True;Connect Timeout=10;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        Connect(connstr);
+    }
+
+    private void Connect(string connstr)
+    {
+        Console.WriteLine($"Attempting to connect using connection string: {Environment.NewLine}{connstr}");
 
         using var conn = new SqlConnection(connstr);
 
