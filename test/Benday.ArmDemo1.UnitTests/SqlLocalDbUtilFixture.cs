@@ -146,6 +146,8 @@ public class SqlLocalDbUtilFixture
 
         var instanceName = instances[0];
 
+        SqlLocalDbUtility.Start(instanceName);
+
         // act
         var actual = SqlLocalDbUtility.GetNamedPipeInfo(instanceName);
 
