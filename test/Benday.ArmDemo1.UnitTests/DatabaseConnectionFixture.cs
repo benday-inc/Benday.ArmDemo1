@@ -10,7 +10,7 @@ public class DatabaseConnectionFixture
 {
     [TestMethod]
     // [Timeout(10000)]
-    public void ConnectToDatabase_ConnectionString()
+    public void ConnectToDatabase_ConnectionString_LocalDb_NamedInstance()
     {
         var instanceName = "MSSQLLocalDB";
 
@@ -19,6 +19,21 @@ public class DatabaseConnectionFixture
         Thread.Sleep(1000);
         
         var connstr = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=15;";
+
+        Connect(connstr);
+    }
+
+    [TestMethod]
+    // [Timeout(10000)]
+    public void ConnectToDatabase_ConnectionString_LocalDb_DefaultInstance()
+    {
+        var instanceName = "MSSQLLocalDB";
+
+        SqlLocalDbUtility.Start(instanceName);
+
+        Thread.Sleep(1000);
+        
+        var connstr = @"Data Source=(localdb)\.;Initial Catalog=master;Integrated Security=True;Connect Timeout=15;";
 
         Connect(connstr);
     }
