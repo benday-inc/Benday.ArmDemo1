@@ -17,7 +17,25 @@ public class DatabaseConnectionFixture
         SqlLocalDbUtility.Start(instanceName);
 
         Thread.Sleep(1000);
-        
+
+        var connstr = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=15;";
+
+        Connect(connstr);
+    }
+
+    [TestMethod]
+    // [Timeout(10000)]
+    public void ConnectToDatabase_ConnectionString_LocalDb_NamedInstance_UseManagedNetworkingOnWindows()
+    {
+        Console.WriteLine("Setting use managed networking on windows...");
+        AppContext.SetSwitch("Switch.Microsoft.Data.SqlClient.UseManagedNetworkingOnWindows", true);
+
+        var instanceName = "MSSQLLocalDB";
+
+        SqlLocalDbUtility.Start(instanceName);
+
+        Thread.Sleep(1000);
+
         var connstr = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=15;";
 
         Connect(connstr);
@@ -32,7 +50,7 @@ public class DatabaseConnectionFixture
         SqlLocalDbUtility.Start(instanceName);
 
         Thread.Sleep(1000);
-        
+
         var connstr = @"Data Source=(localdb)\.;Initial Catalog=master;Integrated Security=True;Connect Timeout=15;";
 
         Connect(connstr);
@@ -49,12 +67,12 @@ public class DatabaseConnectionFixture
         Thread.Sleep(1000);
 
         var pipeInfo = SqlLocalDbUtility.GetNamedPipeInfo(instanceName);
-        
+
         var connstr = @$"Data Source={pipeInfo}; Encrypt=false;";
 
         Connect(connstr);
     }
-    
+
     private static void Connect(string connstr)
     {
         Console.WriteLine($"Attempting to connect using connection string: {Environment.NewLine}{connstr}");
