@@ -9,7 +9,7 @@ namespace Benday.ArmDemo1.UnitTests;
 public class DatabaseConnectionFixture
 {
     [TestMethod]
-    // [Timeout(10000)]
+    [Timeout(5000)]
     public void ConnectToDatabase_ConnectionString_LocalDb_NamedInstance()
     {
         var instanceName = "MSSQLLocalDB";
@@ -24,7 +24,7 @@ public class DatabaseConnectionFixture
     }
 
     [TestMethod]
-    // [Timeout(10000)]
+    [Timeout(5000)]
     public void ConnectToDatabase_ConnectionString_LocalDb_NamedInstance_UseManagedNetworkingOnWindows()
     {
         Console.WriteLine("Setting use managed networking on windows...");
@@ -42,7 +42,7 @@ public class DatabaseConnectionFixture
     }
 
     [TestMethod]
-    // [Timeout(10000)]
+    [Timeout(5000)]
     public void ConnectToDatabase_ConnectionString_LocalDb_DefaultInstance()
     {
         var instanceName = "MSSQLLocalDB";
@@ -57,7 +57,7 @@ public class DatabaseConnectionFixture
     }
 
     [TestMethod]
-    // [Timeout(10000)]
+    [Timeout(5000)]
     public void ConnectToDatabase_NamedPipe()
     {
         var instanceName = "MSSQLLocalDB";

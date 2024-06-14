@@ -10,19 +10,19 @@ public class SqlLocalDbUtilFixture
     [TestInitialize]
     public void OnTestInitialize()
     {
-        _systemUnderTest = null;
+        _SystemUnderTest = null;
     }
-    private SqlLocalDbUtility? _systemUnderTest;
+    private SqlLocalDbUtility? _SystemUnderTest;
     public SqlLocalDbUtility SystemUnderTest
     {
         get
         {
-            if (_systemUnderTest == null)
+            if (_SystemUnderTest == null)
             {
-                _systemUnderTest = new SqlLocalDbUtility();
+                _SystemUnderTest = new SqlLocalDbUtility();
             }
 
-            return _systemUnderTest;
+            return _SystemUnderTest;
         }
     }
 
